@@ -1,0 +1,10 @@
+liblxi_la-mdns.lo: mdns.c /usr/include/stdc-predef.h ../src/include/lxi.h \
+ ../src/include/config.h ../src/include/avahi.h
+
+/usr/include/stdc-predef.h:
+
+../src/include/lxi.h:
+
+../src/include/config.h:
+
+../src/include/avahi.h:

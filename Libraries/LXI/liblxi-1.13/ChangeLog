@@ -1,0 +1,224 @@
+=== liblxi v1.13 ===
+
+
+
+Changes since liblxi v1.12:
+
+ * Fix Sun RPC headers configure check
+
+   The Sun RPC headers have been moved out of glibc into a separate
+   library, libtirpc.
+
+   Hence, check for glibc headers first and in case that fails search for
+   headers in libtirpc via pkg-config.
+
+ * Add const qualifier
+
+   Because it is the right thing to do.
+
+ * Update Travis
+
+ * Use libtirpc for Sun RPC headers
+
+ * Move test directory
+
+
+
+Changes since liblxi v1.11:
+
+ * Add send/receive sanity checks
+
+ * Strip CR from ID response string
+
+   Fixes corrupted output from 'lxi discover'.
+
+
+
+Changes since liblxi v1.10:
+
+ * Fix mDNS/DNS-SD discover feature
+
+
+
+Changes since liblxi v1.9:
+
+ * Update Travis
+
+ * Cleanup
+
+ * Add --disable-avahi configure option
+
+   Makes avahi mandatory unless --disable-avahi is provided.
+
+
+
+Changes since liblxi v1.8:
+
+ * Update AUTHORS
+
+ * Convert tabs to spaces
+
+ * Make API usable in C++
+
+   As suggested by Dima Kogan, lets wrap the API so that it is usable in
+   C++.
+
+ * Only export lxi API specific functions
+
+   Hide visibility of internal functions so that only the lxi API specific
+   ones are exported/visible to applications linking with liblxi.
+
+   These changes are applied on behalf of Dima Kogan.
+
+ * Add discover fallback to request ID via HTTP/XML
+
+   If retrieving the instrument ID fails via VXI-11 during discovery then
+   try to retrieve the ID via the /lxi/identification XML file hosted by
+   some instruments via HTTP.
+
+   Adds dependency on libxml2.
+
+Dmitri Goutnik:
+
+ * Make code clang friendly, fix warnings
+
+
+
+Changes since liblxi v1.7:
+
+ * Fix lxi_connect() so it does not apply lock
+
+   Some instruments fail to lock for exclusive access when creating a
+   VXI-11 connection. So, to play it safe, we will simply not try to lock
+   when setting up the connection.
+
+
+
+Changes since liblxi v1.6:
+
+ * Update to new URL
+
+ * Update README
+
+ * Update AUTHORS
+
+ * Use HTTPS in the configure script
+
+Jakub Wilk:
+
+ * Fix typos
+
+
+
+Changes since liblxi v1.5:
+
+ * Update README
+
+ * Add authors section in README
+
+ * Add README.md to prettify GitHub page
+
+
+
+Changes since liblxi v1.4:
+
+ * Add support for mDNS/DNS-SD discovery
+
+   Add parameter to lxi_discover() so it is possible to select discovery
+   using VXI-11 or mDNS/DNS-SD.
+
+   If detected available, Avahi is used as the mDNS/DNS-SD backend
+   implementation.
+
+ * Print errors to stderr
+
+ * Update README
+
+
+
+Changes since liblxi v1.3:
+
+ * Fix discover output strings
+
+   Discovery of multiple LXI instruments revealed a bug in the id string
+   handling which results in garbled output strings. Adding missing string
+   termination fixes this.
+
+ * Add timeout handling for raw/TCP
+
+ * Update examples
+
+ * Cleanup
+
+ * Update README
+
+ * Add support for configurable protocol backends
+
+   Reworked the code to support configurable protocol backends. Currently
+   supported protocols include VXI11 and raw TCP. In the future support for
+   HiSlip can be added.
+
+
+
+Changes since liblxi v1.2:
+
+ * Fix building with multiple jobs (make -jN, N>1)
+
+ * Update README
+
+
+
+Changes since liblxi v1.1:
+
+ * Added AUTHORS file
+
+ * Update COPYING
+
+ * Update README
+
+ * Update connect test
+
+ * Improve lxi_connect() with device name and timeout
+
+ * Make timeout error message human readable
+
+   Lets explain the most common error, that is timeout, in a human readable
+   format.
+
+ * Fix timeout handling
+
+ * Use thread-safe version of VXI11 function calls
+
+ * Autogenerate VXI11 RPC functions
+
+   Automatically generate VXI11 RPC functions instead of using bundled or
+   system provided VXI11 library. This allows us to generate thread-safe
+   versions of the VXI11 RPC functions in the future.
+
+
+
+Changes since liblxi v1.0:
+
+ * Fixed instrument not responding
+
+   Use the default LAN Device Name of "inst0". Some instruments do not
+   respond if this device name is not used.
+
+ * Remove unused rpcgen tool check
+
+ * Cleanup rpc header check
+
+ * Add support for use of system VXI library
+
+   Added configure option '--with-vxi=[internal/system]' which allows the
+   user to decide whether to use the internally bundled VXI library or the
+   VXI library provided by the system.
+
+   By default the internal VXI library is used.
+
+
+
+liblxi v1.0:
+
+ * First release (stable)
+

@@ -1,0 +1,659 @@
+=== lxi-tools v1.21 ===
+
+
+
+Changes since lxi-tools v1.20:
+
+ * Fix handling of question commands in interactive mode
+
+
+
+Changes since lxi-tools v1.19:
+
+ * Add bash completion for snap
+
+ * Update README
+
+   Add tested instrument Keysight AWG 33612A as tested by Timur Aydin.
+
+ * Add const qualifier
+
+ * Update AUTHORS
+
+ * Require Lua 5.1 or newer
+
+ * Include test dir in distribution
+
+ * Update Travis
+
+ * Fix bash completion for run command
+
+ * Update basic-tests.lua
+
+ * Move test directory
+
+ * Add basic Lua tests
+
+
+
+Changes since lxi-tools v1.18:
+
+ * Downgrade to Lua 5.2
+
+ * Update Travis configuration
+
+ * Add Lua scripting feature to support automation
+
+   Add run command which makes it possible to run Lua scripts to support
+   advanced instrument automation.
+
+   To run a Lua script simply do:
+   $ lxi run test.lua
+
+   The following LXI specific Lua functions are added and made available
+   for use in the Lua scripts:
+
+   device = connect(ip)
+   scpi(device, command)
+   scpi_raw(device, command)
+   msleep(miliseconds)
+   sleep(seconds)
+   disconnect(device)
+
+   See src/test/test.lua for a simple Lua script example.
+
+ * Update README
+
+ * Update AUTHORS
+
+ * Improve regex of rs-hmo-rtb screenshot plugin
+
+   Include instruments made with "HAMEG" identifier.
+
+ * README: Add sponsors section
+
+ * lxi-gui: Fix snap build
+
+ * configure: use pkg-config to check for Qt5
+
+ * lxi-gui: Cleanup Qt5 configuration
+
+ * Reconfigure R&S screenshot plugin to BMP
+
+ * Add RTB2004 to list of tested instruments
+
+Dmitri Goutnik:
+
+ * Use QT_SELECT value instead of hardcoded QT version
+
+
+
+Changes since lxi-tools v1.17:
+
+ * lxi-gui: Add X-axis title to data recorder chart
+
+ * lxi-gui: Fix data recorder chart colors and csv export
+
+ * lxi-gui: Add SCPI 1999.0 commands
+
+ * lxi-gui: Add data recorder save data feauture
+
+   Add a save button which allows to save recorded data to file in CSV
+   format.
+
+ * lxi: Increase default discover mDNS timeout
+
+ * lxi-gui: Optimize data recorder plotting
+
+ * lxi-gui: Fix arm snap build
+
+ * lxi-gui: Print machine type during qmake build
+
+ * lxi-gui: Remove *OPT? SCPI command
+
+ * lxi-gui: Use elapsed real time in data recorder
+
+ * lxi-gui: Print SCPI command requests
+
+ * Add screenshot support for RTB 2000
+
+ * Cleanup timeout handling, etc.
+
+ * lxi-gui: Reduce minimum window size
+
+ * Add support for adding custom Qt qmake arguments
+
+   Add QMAKE_ARGUMENTS flag which allows to pass on arguments to qmake when
+   building lxi-gui.
+
+ * lxi-gui: Make sure to call QT5 qmake
+
+
+
+Changes since lxi-tools v1.16:
+
+ * lxi-gui: Add input dialog for *ESE and *SRE commands
+
+ * lxi-gui: Fix qmake compile flags
+
+ * lxi-gui: Start with SCPI page
+
+ * Add configure check for Qt5Charts
+
+ * lxi-gui: Cleanup
+
+   Name UI elements accordingly
+
+ * lxi-gui: Add screenshot live view
+
+ * Update README screenshot
+
+ * lxi-gui: Add ID/IP instrument table header
+
+ * lxi-gui: Tag as BETA
+
+ * Update README
+
+   Introduce lxi-gui and include screenshot.
+
+ * Link QT5 Charts manually
+
+   To avoid build issue with snap.
+
+ * lxi-gui: Add data recorder feature
+
+ * lxi-gui: Add settings
+
+ * lxi-gui: Add QT5 source files
+
+ * lxi-gui: Introduce responsive layout
+
+   The lxi-gui application can now automatically resize to fit any window
+   size.
+
+ * lxi-gui: Add 'Open in browser' right-click feature
+
+ * lxi-gui: Add IEEE 488.2 Common Commands
+
+ * lxi-gui: Add about details
+
+ * lxi-gui: Add screenshot feature
+
+ * lxi-gui: Add benchmark feature
+
+ * Split features into separate files
+
+ * Update README
+
+ * Update lxi-gui
+
+ * Add keysight-dmm screenshot plugin
+
+   This plugin supports Keysight Truevolt digital multimeters.
+
+ * Set default discover timeout to 1 s
+
+ * Add experimental QT5 GUI
+
+   Can be enabled using configure option --enable-lxi-gui
+
+   Requires QT 5.0.0 or newer.
+
+ * Cleanup
+
+ * Update Travis
+
+
+
+Changes since lxi-tools v1.15:
+
+ * Update AUTHORS
+
+ * Convert tabs to spaces
+
+ * Remove experimental label from keysight-ivx plugin
+
+   Tested with MSO-X 3024T by ralphrmartin from EEVBlog forum.
+
+ * Fix keysight-iv2000x plugin
+
+   Fix header strip and change image format to BMP. Improve regex.
+
+ * Fix image format for rigol-dg4000 plugin
+
+ * Update completion script
+
+ * Cleanup
+
+Dmitri Goutnik:
+
+ * Make code clang friendly
+
+
+
+Changes since lxi-tools v1.14:
+
+ * Update man page
+
+ * Add support for using raw/TCP in benchmark mode
+
+   Add the option to run benchmark using raw/TCP. For example:
+
+   $ lxi benchmark --address 10.0.0.42 --port 5555 --raw
+
+   Also, cleanup all port handling code and update documentation
+   accordingly.
+
+ * Decrease timeout for discover to 2 s
+
+
+
+Changes since lxi-tools v1.13:
+
+ * Make screenshot plugin only support Rigol DM3068
+
+   Rigol DM3068 is the only DM3000 series digital multimeter that seems to
+   have screenshot support.
+
+ * Fix entering interactive mode
+
+   Regardless of using --interactive a SCPI command was still required to
+   be provided to enter interactive mode.
+
+ * Update AUTHORS
+
+ * Remove experimental label from Siglent plugins
+
+   Thanks to Siglent who helped fix and test all the screenshot plugins for
+   their instruments.
+
+ * Cleanup screenshot plugins
+
+ * Consolidate Rigol DSA plugins into one
+
+ * Update README and man page
+
+ * Support writing screenshot image to stdout
+
+   To write screenshot image to stdout simply use '-' as the output
+   filename. This allows to pipe the screenshot image directly to other
+   tools for image processing.
+
+   For example, using imagemagick to automatically convert captured
+   screenshot image to JPG:
+
+    $ lxi screenshot -a 10.0.0.42 - | convert - screenshot.jpg
+
+ * Cleanup Siglent screenshot plugins
+
+ * Update siglent-ssa3000x plugin
+
+ * Add siglent-sdg plugin
+
+ * Add siglent-sdm3000 plugin
+
+ * Move siglent-sds out of experimental
+
+ * Extend Siglent plugin to include SDS2000X
+
+
+
+Changes since lxi-tools v1.12:
+
+ * Update README
+
+ * Update SSA3000X capture command
+
+ * Add completion for benchmark command
+
+ * Update AUTHORS
+
+ * Fix get_device_id()
+
+   This function was missing a call to lxi_disconnect() which resulted in
+   some instruments being left hanging when capturing screenshots.
+   Instruments that presumable only allow one active connection.
+
+ * Add benchmark feature
+
+   This benchmark feature is useful if you want to compare the VXI-11
+   request/response performance of your instruments.
+
+   By default the benchmark sends 100 SCPI ID requests ("*IDN?" commands)
+   to the instrument. For each request it waits for and reads the response.
+   When done the resulting request rate is printed.
+
+ * Fix screenshot command when using plugin autodetection
+
+   The wrong timeout value was passed when trying to autodetect which
+   screenshot plugin to use.
+
+ * Cleanup
+
+ * Fix Rohde & Schwarz HMO 1000 screenshot plugin
+
+   Fix plugin so that it does not strip off the PNG header of the PNG image
+   stream.
+
+   Also, the source files and functions of the plugin is now named more
+   explicitly according to the name of the instrument series (HMO 1000).
+
+ * Fix Siglent SSA3000 screenshot plugin
+
+
+
+Changes since lxi-tools v1.11:
+
+ * Update to new URL
+
+ * Add snap status
+
+ * Fix redirection of output to file
+
+ * Update README
+
+ * Cleanup configure.ac
+
+Jakub Wilk:
+
+ * Use HTTPS in the configure script
+
+
+
+Changes since lxi-tools v1.10:
+
+ * Update README
+
+ * Update man page
+
+ * Update AUTHORS
+
+ * Expand tested instruments list
+
+ * Rename screenshot plugin rigol-1000 -> rigol-1000z
+
+ * Add various Rigol screenshot plugins
+
+   Add the following Rigol screenshot plugins:
+
+   rigol-dg4000   Rigol DG4000 series function generator
+   rigol-dm3000   Rigol DM3000 series digital multimeter
+    rigol-dp800   Rigol DP800 series power supply
+   rigol-dsa800   Rigol DSA800 series spectrum analyzer
+   rigol-dsa700   Rigol DSA700 series spectrum analyzer
+
+   The code is added on behalf of PeDre from the EEVBlog forum.
+
+ * Add authors section in README
+
+ * Add README.md to prettify GitHub page
+
+   The original README is still preserved because it is more readable when
+   not reading it via GitHub.
+
+Jakub Wilk:
+
+ * Strip trailing spaces
+
+ * Fix typo
+
+ * Fix grammar and typos
+
+
+
+Changes since lxi-tools v1.9:
+
+ * Add support for mDNS/DNS-SD discovery
+
+   Add "--mdns" option which enables the discover command to search for LXI
+   devices/services using mDNS/DNS-SD.
+
+ * Fix Siglent screenshot plugins
+
+   Write correct response buffer to file. Improve .regex match expression.
+
+
+
+Changes since lxi-tools v1.8:
+
+ * Update README
+
+ * Fix newlines when redirecting to file or terminal
+
+ * Rename --dump-hex to --hex
+
+ * Fix missing error message when no SCPI command defined
+
+ * Update man page
+
+ * Remove --dump-file option
+
+   The correct way to dump response to file is to use pipe output
+   redirection. For example:
+
+   lxi scpi --address 192.168.1.210 "*IDN?" > response.txt
+
+   This way it is possible to dump any binary response to file.
+
+ * Fix missing error message when no IP address defined
+
+ * Print errors to stderr
+
+ * Cleanup Siglent SDS1000 plugin name
+
+ * Add Siglent SSA 3000X screenshot plugin
+
+ * Cleanup script examples
+
+ * Correct default SCPI raw/TCP port
+
+   By default use port 5025 as described here:
+   http://www.lxistandard.org/About/LXI-Protocols.aspx
+
+   If a different port is needed use the '--raw-port' option.
+
+   Apparently Rigol is not using the recommended port for raw SCPI
+   commands.
+
+ * Update descriptions of the plugin options
+
+
+
+Changes since lxi-tools v1.7:
+
+ * Update README
+
+ * Add Siglent SDS 1000 screenshot plugin
+
+
+
+Changes since lxi-tools v1.6:
+
+ * Update README
+
+ * Cleanup
+
+ * Update .regex for Tektronix plugin
+
+ * Update .regex for R&S plugin
+
+ * Update .regex for Keysight plugin
+
+ * Update man page
+
+ * Embed instrument IP address in screenshot filename
+
+   This helps identify screenshot files when capturing screenshots from
+   multiple instruments.
+
+   It also allows simplifying the APIs used by the screenshot plugins.
+
+ * Change option '--model' to '--plugin'
+
+   Lets remove any model vs. plugin confusion and only deal with plugin
+   names. Each plugin includes support for one or more instruments models
+   as described in the plugin description.
+
+ * Add automatic loading of screenshot plugin feature
+
+   If no screenshot plugin is specified the tool will automatically try to
+   select the best plugin by matching the instruments ID string against the
+   regular expressions defined in each plugin.
+
+   Each screenshot plugin defines a .regex string entry containing space
+   separated regular expressions. Each regular expression is matched
+   against the instrument ID string. The plugin with most matches is
+   selected.
+
+   Note: This mechanism is slightly slower than manually specifying which
+   screenshot plugin because it needs to retrieve the instruments ID string
+   first.
+
+ * Improve description of Rigol plugins
+
+ * Fix Rigol 2000 screenshot plugin
+
+   Remove trailing newline in received image data.
+
+ * Add screenshot plugin for Rigol 2000 series
+
+   Also, make existing Rigol plugin only apply for 1000z series.
+
+
+
+Changes since lxi-tools v1.5:
+
+ * Add date-time stamp to screenshot filename
+
+ * Improve command handling
+
+   In case of a misspelled command the tool would misleadingly
+   respond: "Error: No IP address specified"
+
+   With this fix, it now responds: "Error: Unknown command"
+
+ * Update README
+
+ * Added screenshot plugin for Tektronix 2000 series scopes
+
+ * Improve scpi response output
+
+ * Add --raw and --raw-port options to scpi command
+
+   One can now use choose to use raw/TCP instead of VXI11 when firing SCPI
+   commands. Simply append the --raw option like so:
+
+   lxi scpi --raw --address 192.168.0.42 "*IDN?"
+
+   By default raw/TCP port 5555 is used but it can be changed using the
+   --raw-port <port> option.
+
+   Warning: Using raw/TCP is faster than VXI11 but does not provide any
+   timeout/control mechanisms so if your command somehow stalls it will
+   stall forever.
+
+ * Use new lxi_connect() function
+
+ * Cleanup
+
+ * Make screenshot filename optional
+
+   In case no screenshot filename is provided the tool will write the
+   screenshot image to an automatically resolved and incremented filename
+   on the form screenshot-###.<format>. For example, screenshot-000.png,
+   screenshot-001.png, etc.
+
+ * Improve screenshot model listing
+
+ * Increase default timeout for screenshot command
+
+   Transferring screenshot image data takes time so lets increase the
+   timeout so we do not easily interrupt a good but slow transfer.
+
+ * Collapse Rigol screenshot plugin
+
+   Support all Rigol oscilloscope models via one model name.
+
+ * Add screenshot support for Keysight IV 2000 X
+
+ * Cleanup plugins
+
+ * Add screenshot support for R&S HMO1000 series
+
+ * Add screenshot support for Rigol 2000/4000
+
+ * Create directory for screenshot plugins
+
+
+
+Changes since lxi-tools v1.4:
+
+ * Remove -Og flag
+
+   Not supported by older gcc versions.
+
+ * Fix various bugs in script and interactive mode
+
+
+
+Changes since lxi-tools v1.3:
+
+ * Add screenshot feature to lxi tool
+
+   The old rigol_1000z_screenshot tool is retired in favor of a screenshot feature
+   in the lxi tool. A new lxi command 'screenshot' is added and also a small
+   screenshot plugin framework which makes it easy to add new screenshot plugins
+   for new instruments.
+
+   Currently there is only a screenshot plugin for Rigol 1000Z series
+   oscilloscopes.
+
+ * Update README
+
+
+
+Changes since lxi-tools v1.2:
+
+ * Added AUTHORS file
+
+ * Use new lxi_connect() function
+
+ * Reconfigure default timeout to 3 seconds
+
+
+
+Changes since lxi-tools v1.1:
+
+ * Increase default timeout value for lxi tool
+
+   Increase the default timeout value for the lxi tool from 1 to 5 seconds
+
+ * Fix timeout for Rigol screenshot tool
+
+   Timeout is increased to avoid failure to capture screenshot
+
+ * Fix typo
+
+ * Cleanup test script
+
+ * Fix crash in rigol_1000z_screenshot tool
+
+   Add error handling to avoid crashing when connecting remote device fails.
+
+
+
+Changes since lxi-tools v1.0:
+
+ * Fix missing src/bash-completion/lxi
+
+   An automake rule was fixed to make sure that the file
+   src/bash-completion/lxi is included in the distributed tarball.
+
+ * Update README
+
+
+
+lxi-tools v1.0:
+
+ * First release (stable)
+ 

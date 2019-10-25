@@ -1,0 +1,411 @@
+	Documentation on the PC Transfer Set for Field Strength Meters 
+	**************************************************************
+
+		  in the EMR Family from Wandel & Goltermann
+		  ******************************************
+
+
+	Author: Helmut Keller, Wandel & Goltermann, Dept. 1EP1
+	Date:   October 7, 1996 
+
+
+
+	Hardware:
+	*********
+
+	The PC transfer set consists of the following:
+	
+		* 2 bidirectional, plastic fiber optical cable, 
+		  2 m and 20 m long
+		* 1 fiber optical adapter, ORSD-9 universal
+		* 1 adapter from 9-pin submin. D to 25-pin submin. D
+		* 1 MS-DOS diskette (3.5") with the following files:
+		    - README.TXT (a quick summary)
+		    - EMR\PCT_DOC.TXT (this text, documentation on the
+		      PC transfer set)
+		    - EMR\EMR_PCT.TRM (configuration file for the Windows 
+		      accessory program 'Terminal')
+		    - EMR\PROBES\*.* (a configuration utility for the EMR
+		      family)			 
+		    - EFA\*.*(How to use the PC transfer set with
+		      the EFA family)
+		
+   
+	The fiber optical adapter converts the electrical signals from 
+	the serial, bidirectional interface used in the EMR devices 
+	into electrical RS-232 signals. The adapter is powered by the 
+	PC; no additional power supply is necessary. When connected to 
+	a PC, the adapter must be set to 'DTE'. If the serial interface 
+	of the PC has a 25-pin connector instead of a 9-pin one, use 
+	the adapter included here.
+
+	The data format of the interface is 4800 baud, 1 start bit, 
+	8 data bits, 1 stop bit, no parity. For the protocol,
+	XON/XOFF should be set. Data are transmitted and received
+	as ASCII characters.
+
+	
+	Quick-start with Microsoft Windows 3.1 or WfW 3.11:
+	***************************************************
+
+	If you use Microsoft Windows, you can get a quick overview of 
+	the remote control capabilities of the EMR family. First, start 
+	up the Windows accessory known as "Terminal". Then load the 
+	configuration file EMR_PCT.TRM found on this diskette. If you 
+	plan to make regular use of the terminal program for con-
+	trolling your EMR device, then copy the file EMR_PCT.TRM onto 
+	your hard disk. This will not change your Windows installation. 
+	If and when you no longer need the configuration file, just 
+	erase it. Your computer will then be restored to its original 
+	state.
+	
+	If the transfer set is connected to the COM 2 port, you can get
+	started immediately once EMR_PCT.TRM is loaded. If you use 
+	another port, you will have to configure the terminal program 
+	accordingly. Using the function keys in the terminal program, 
+	you can then control almost the entire range of remote control
+	functions of the EMR family.
+	
+	The labelling on the function keys should be self-explanatory. 
+	When you click on a function key, you will see the command text 
+	which is transmitted to the EMR device. Any possible re-
+	sponse(s) from the EMR device will be displayed in the 
+	following line(s).
+
+	Please note that you can use a total of four levels of function
+	keys. Access the different levels by clicking on the key to the
+	right of the function keys. This shifts the function keys by 
+	one level.
+
+	Tip:
+	
+	You can use measurement results gathered with the Terminal 
+	program in other Windows applications as long as they are 
+	capable of processing numerical data in text format. Just 
+	mark the results with the mouse and copy them to the Windows 
+	buffer. You can then access these results from other 
+	applications (until you copy other data into the buffer). 
+	We suggest that you call up the editor included with the 
+	Windows accessories as soon as you leave the Terminal program 
+	and store the data in a file.
+
+	Another way to store measurement data in a text file is to write 
+	the receiving data directly in to a text file. While writing to a 
+	text file no function keys can be used. See the help file of the
+	terminal program for more details.  
+	  
+
+	If you want to use "Excel" to process the data, you have to 
+	let Excel know that, in case of three-channel data, the columns
+	are separated by a comma. Also, the number format must be set
+	to recognize "." as the decimal point. There should not be any
+	separator for the "thousands" place. One way to do this is using 
+	the Windows control panel.
+
+
+	Command language:
+	*****************
+
+	The device is controlled using commands based on SCPI. Commands
+	must be terminated with 'LF'. A 'CR' is optional before the
+	'LF'. No distinction is made between upper and lower case. 
+	Output strings are terminated with 'CR LF'.
+
+	It is good practice to use a garbage collector for the data strings 
+	received from the EMR instruments. The following signs should be 
+	deleted before further processing: blanks, CR, LF, DC1 and DC3
+	(in decimal: 32, 13, 10, 17, 19). 
+
+
+	In the description of the commands, the following nomenclature
+	is used:
+
+	[?] an optional '?' is used to query the parameter settings
+
+	<X> angled brackets enclose a transmission parameter X
+	!!! the parameter must be separated from the preceeding text 
+	by a blank !!!
+
+	/   a slash separates possible alternative entries
+
+	{ } an abbreviated form of commands is given in curly brackets 
+
+	*******************************************************************
+	!!! You should use only those commands which are listed here.
+	There exist a few other commands which are intended only for 
+	the production test shop and for the service department at 
+	Wandel & Goltermann. !!!
+	*******************************************************************
+
+	*IDN?           
+		Returns a string with the company name, device name,
+		serial number and version number of the device 
+		software.
+
+	SYST:BEEP               {BP}
+		The device outputs a beep.
+
+	SYST:ERR?               {SE}
+		An error message of the command interpreter is queried.
+		This can be executed to check whether a command was 
+		properly understood.
+
+		0       no error
+		-109    missing parameter
+		-110    unknown command
+		-222    data out of range
+		-224    illegal parameter value
+		-300    mode error
+
+	SYST:BAT?                
+		You can query whether the NiCds or batteries are still
+		delivering sufficient voltage:
+		BAT_LOW     batteries are low
+		BAT_OK      batteries still OK
+		!!! If you query this item regularly, there is still 
+		enough charge for 15 minutes of operation once the 
+		first BAT_LOW is reported. Afterwards, the device 
+		shuts off automatically. If the device detects 
+		insufficient battery voltage at power-on, then it 
+		automatically shuts off during the self-test after 
+		outputting an appropriate error message. !!!
+
+	SYST:KLOC <X>        {KLOC <X>}
+		The keypad of the basic device can be disabled. When
+		disabled, the device beeps if a key is pressed; the key 
+		press is otherwise ignored. The ON/OFF key is an 
+		exception. You can still power off the device manually 
+		even when the keypad is disabled.
+		X = ON          Keypad is disabled
+		X = OFF         Keypad is enabled
+	   
+	*******************************************************************
+	The following commands work only in measurement mode. In other 
+	words, the device must have passed the self-test after power-on
+	with no error messages. You can test whether the device is in 
+	measurement mode by transmitting one of the following commands, 
+	followed by the command SYST:ERR?. If error -300 (mode error) 
+	is reported, the device is not in measurement mode.
+	*******************************************************************
+
+	MEAS?                   {M}
+		A single measured value is output.
+		The decimal point is a '.'.
+		The length of the output string is constant per output
+		unit; leading zeroes lying more than one place to 
+		the left of the decimal point are represented as a 
+		'BLANK'.
+		For a three-channel measurement, the three spatial
+		components are output separated by a comma.
+		See also the commands CALC:UNIT and CALC:AXIS.
+
+	MEAS:ARRAY? <X>         {MA <X>}
+		X measured values are output at intervals ranging from 
+		400 ms to 800 ms.
+		You can stop outputting measured values with MEAS:STOP. 
+		X = 1 to 255
+
+	MEAS:START      {MSTR}
+		Continuous output of measured values is initiated. 
+		The interval between measured values can range from 
+		400 ms to 800 ms.
+		Use MEAS:STOP to stop outputting values.
+
+	MEAS:STOP       {MSTP}
+		Ends output of measured values which was initiated 
+		with MEAS:START or MEAS:ARRAY?.
+
+	CALC:AVER[?] <X>        {AV[?] <X>}   
+		Computation of the AVERAGE value can be switched 
+		on and off.
+		X = ON/OFF
+		Averaging can be active at the same time as the MAX 
+		function. When this happens, the maximum average value
+		is output. See also CALC:MAX. 
+		***********************************************************
+		!!! When AVERAGE is switched on, measured values are
+		output on the serial interface only if the averaging 
+		time setting (see also CALC:AVER:TIME) has elapsed since
+		the device was switched on or the average memory was
+		cleared (see CALC:AVER:CLEAR). When AVERAGE is switched
+		on, measured values are output only at intervals of
+		4 seconds. !!!
+		***********************************************************
+	
+	CALC:AVER:TIME[?] <X>   {AVT[?] <X>}
+		The averaging time can be set with a resolution of
+		4 seconds.
+		X = 4 to 1000 
+		When the device is powered on, X is set equal to 
+		360 seconds (6 minutes).
+
+	CALC:AVER:CLEAR         {AVC}
+		Use this function to clear the averaging memories 
+		(AVERAGE: X,Y,Z and EFF).
+
+	CALC:MAX[?] <X>         {MAX[?] <X>}   
+		The maximum value function can be switched on and off.
+		X = ON/OFF
+		The maximum value function can be active at the same 
+		time as the AVERAGE function. When this happens, the 
+		maximum average value is output. See also CALC:AVER. 
+
+	CALC:MAX:CLEAR          {MAXC}
+		The memories for the maximum value function 
+		(MAX: X,Y,Z and EFF and MAX AVERAGE: X,Y,Z and 
+		EFF) are cleared.
+
+	CALC:UNIT[?] <X>        {CU[?] <X>}
+		The output units for the measured values can be set.
+		X = E_Field        E field (V/m)
+				   Format XXXXX.XX
+		X = H_Field        H field (A/m)
+				   Format XXX.XXXX
+		X = Power_Dens     Electromagnetic power density 
+				   (mW/(cm*cm))
+				   Format XXXXXXX.XXXXX
+		X = Power_Dens_SI  Electromagnetic power density
+				   (W/(m*m))
+				   Format XXXXXXXX.XXXX
+
+	CALC:CAL[?] <X>         {CC[?] <X>}
+		The CAL factor can be entered.
+		X = 0.01 to 99.99
+		(display value = CAL factor * measured value)
+
+	CALC:AXIS[?] <X>        {CAX[?] <X>}
+		The processing of the three spatial components can be
+		set for isotropic probes.
+		X = ALL         The display gives the equivalent field
+				strength.
+				However, the three spatial components
+				are output separately on the serial
+				interface.
+				The order of the spatial components is 
+				X, Y and Z. For single-channel probes,
+				only the X component is output.
+				This setting is always activated after 
+				power-on.
+		X = EFF         The display as well as the serial
+				interface output the equivalent field
+				strength.
+		X = X/Y/Z       The display as well as the serial
+				interface output the selected spatial
+				component (X, Y or Z).
+		Since the device has a total of 16 memories for the four 
+		different averaging modes (ACTUAL, AVERAGE, MAX and 
+		MAX & AVERAGE) and spatial components (X, Y, Z  and 
+		EFF), setting the averaging mode has the same effect on 
+		all settings of CALC:AXIS, i.e. in all cases the 
+		average values are computed from actual values of the 
+		displayed spatial component.
+
+	CAL:AUTO:ZERO[?] <X>    {AZ[?] <X>}
+		Setting of automatic zero alignment.
+		X = 0 to 2      reserved, 
+				only for W&G testing and service.
+		X = ON          zero alignment is executed and is then
+				performed from this point onwards
+				cyclically at intervals as set with 
+				CAL:ZERO:TIME.
+		X = OFF         zero alignment is performed once.
+		Zero alignment lasts about three seconds. No measured
+		values are output during zero alignment. Automatic
+		zero alignment is used only to compensate for 
+		temperature variations.
+		In a lab environment, a single zero alignment is 
+		sufficient if the temperature is kept constant to 
+		+/- 3 degrees Celsius. The advantage of this is that 
+		you can prevent measurements from being interrupted by 
+		a zero alignment.
+
+	CAL:ZERO:TIME[?] <X>    {ZT[?] <X>}       
+		Setting of the maximum time interval (minutes) at 
+		which automatic zero alignment is performed.
+		X = 2 to 60   in steps of 1
+		After power-on, X is always set equal to 6 (6 minutes).
+		 
+	
+	*******************************************************************
+	The following commands work only with device software version 2.00 
+	or higher (see command *IDN?). This software runs only on newer
+	devices. A software update for older devices is not possible.
+	*******************************************************************
+
+	FAST:MODE[?] <X>
+		Sets the instrument to an mode which is optimized for
+		fast remote control but dissables serveral functions.
+		This mode is very usefull for automated measurements in
+		EMC laboratories.
+ 		X = ON/OFF	Default ist OFF 
+		With X = ON the time intervall between measured values is
+		constantly 400ms if the commands MEAS:ARRAY? or MEAS:START
+		are used. No data are lost. 
+		The response time for the command MEAS? is improved.
+		On the other hand all averaging or max hold is frozen. 
+		The returned measured values are actual values. 
+		The limit value is no longer surveyed. No keyboard inter-
+		upts are serviced. The display is frozen and shows FAST.The
+		automatic zero alignment is done one time when entering 
+		FAST:MODE and is then dissabled until leaving the 
+		FAST:MODE. The calculation unit is set to the base unit of
+		the probe. The axis calculation is set to effectiv field
+		strength. When leaving FAST:MODE the previous settings are 
+		restored. 
+
+	SYST:DEFAULTS	
+		Restores the power up state and dissables all averaging and
+		max hold functions. Returns the device id (like *IDN?) and 
+		the actual calculation unit (like CALC:UNITS?, in this
+		case always the base unit of the probe) 
+ 		
+
+	SYST:PROBES? <X1 Y1>
+			"		     
+		     <XN YN>
+		Returns the probe type number X and the probes serial
+		number Y for every probe that is known to the device.
+		There may be me data for N = 1 ..7 probes.
+		You may only use probes with correct type number and serial
+		number,because the calibration data are stored in the 
+		device and not in the probe. 
+
+	
+	******************************************************************
+	The following commands work only with EMR-30, EMR-31 ...
+	******************************************************************
+
+	SYST:TIME[?] <X,Y,Z>
+		Sets or returns the time of the internal real time clock
+		X = hours (00 to 23)
+		Y = minutes (00 to 59)
+		Z = seconds (00 to 59)
+	
+	SYST:DATE[?] <X,Y,Z>
+		Sets or returns the date of the internal real time clock
+		X = year  ( 00 to 99); 95=1995, 01=2001
+ 		Y = month ( 01 to 12)
+		Z = day (01 to 31)
+
+	MEM? 		
+		Returns the number of data (0 to 1500) stored in the
+		data logger
+		
+
+	MEM:ARRAY? <X,Y>
+		Returns a list of fully documented measured values.	
+		X and Y indicate the memory location in the data logger
+		X = 1 to 1500 start location 
+		Y = 1 to 1500 stop location (Y <= result of MEM?; Y >= X)
+
+	MEM:HEADER
+		A header with device information and explanation for
+		the data columns is returned
+	
+	MEM:ALL	
+		Like MEM:ARRAY but at the begining the header is send and
+		then all stored data are returned. 	
+		 
+
+			 		 
+		   

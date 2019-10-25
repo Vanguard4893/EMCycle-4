@@ -1,0 +1,196 @@
+.TH "lxi" "1" "March 2018"
+
+.SH "NAME"
+lxi \- a tool for controlling LXI compatible instruments.
+
+.SH "SYNOPSIS"
+.PP
+.B lxi
+.RB [\| \-\-help \|]
+.RB [\| \-\-version \|]
+.I <command>
+.I [<args>]
+
+.SH "DESCRIPTION"
+.PP
+lxi is a commandline tool for controlling LXI compatible instruments such as
+modern oscilloscopes, power supplies, spectrum analyzers, etc.
+
+.SH "OPTIONS"
+
+.TP
+.B \-h, \--help
+Display help
+
+.TP
+.B \-v, \--version
+Display program version
+
+.SH COMMANDS
+
+.PP
+.B discover
+.I [<options>]
+.RS
+Search available networks for LXI devices
+.RE
+
+.PP
+.B scpi
+.I [<options>] <SCPI-command>
+.RS
+Send SCPI command
+.RE
+
+.PP
+.B screenshot
+.I [<options>] [<filename>]
+.RS
+Capture screenshot
+.RE
+
+.PP
+.B benchmark
+.I [<options>]
+.RS
+Benchmark
+.RE
+
+.PP
+.B run
+.I [<options>] <filename>
+.RS
+Run Lua script
+.RE
+
+.SH "DISCOVER OPTIONS"
+
+.TP
+.B \-t, \--timeout <seconds>
+Timeout in seconds
+
+.TP
+.B \-m, \--mdns
+Search via mDNS/DNS-SD
+
+.SH "SCPI OPTIONS"
+
+.TP
+.B \-a, \--address <ip>
+IP address of LXI device
+
+.TP
+.B \-p, \--port
+Use port
+
+.TP
+.B \-t, \--timeout <seconds>
+Timeout in seconds
+
+.TP
+.B \-x, \--hex
+Print response in hexadecimal
+
+.TP
+.B \-i, \--interactive
+Enter interactive mode
+
+.TP
+.B \-s, \--script <filename>
+Run script (plain text file with one SCPI command per line)
+
+.TP
+.B \-r, \--raw
+Use raw/TCP protocol
+
+.SH "SCREENSHOT OPTIONS"
+
+.TP
+.B \-a, \--address <ip>
+IP address of LXI device
+
+.TP
+.B \-t, \--timeout <seconds>
+Timeout in seconds
+
+.TP
+.B \-p, \--plugin <name>
+Use screenshot plugin by name
+
+If this option is omitted the tool will automatically try to select the most suitable plugin.
+.TP
+.B \-l, \--list
+List available screenshot plugins
+
+.TP
+To write screenshot image to stdout simply use '-' as the output filename.
+
+.SH "BENCHMARK OPTIONS"
+
+.TP
+.B \-a, \--address <ip>
+IP address of LXI device
+
+.TP
+.B \-p, \--port
+Use port
+
+.TP
+.B \-t, \--timeout <seconds>
+Timeout in seconds
+
+.TP
+.B \-c, \--count <count>
+Number of request messages
+
+.TP
+.B \-r, \--raw
+Use raw/TCP protocol
+
+.SH "RUN OPTIONS"
+
+.TP
+.B \-t, \--timeout <seconds>
+Timeout in seconds
+
+.SH "EXAMPLES"
+.TP
+Search for LXI instruments:
+
+lxi discover
+
+.TP
+Search for LXI instruments using mDNS/DNS-SD:
+
+lxi discover --mdns
+
+.TP
+Send SCPI command:
+
+lxi scpi --address 10.0.0.42 "*IDN?"
+
+.TP
+Send SCPI command and dump response to file:
+
+lxi scpi --address 10.0.0.42 "*IDN?" > response.txt
+
+.TP
+Capture screenshot from a Rigol 1000Z series oscilloscope:
+
+lxi screenshot --address 10.0.0.42 --plugin rigol-1000z
+
+Or by using screenshot plugin autodetection simply:
+
+lxi screenshot --address 10.0.0.42
+
+.PP
+Note: Some LXI devices are slow to process SCPI commands, in which case you
+might need to take care to increase the timeout value.
+
+.SH "WEBSITE"
+.PP
+Visit https://lxi-tools.github.io
+
+.SH "AUTHOR"
+.PP
+Written by Martin Lund <martin.lund@keep-it-simple.com>

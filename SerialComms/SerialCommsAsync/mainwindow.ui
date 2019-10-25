@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1225</width>
+    <height>1081</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QPushButton" name="btnStart">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>300</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Start</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="lstSerialPorts">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>300</y>
+      <width>201</width>
+      <height>51</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblStatus">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>910</y>
+      <width>1061</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Status</string>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="lstReceived">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>1</y>
+      <width>1231</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSentIt">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>360</y>
+      <width>111</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Send</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lneTxText">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>360</y>
+      <width>551</width>
+      <height>71</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNardaVersion">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>550</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>N Version</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNardaTakeReading">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>550</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>N Take Reading</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNardaCalibration">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>550</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>N Calibration</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNardaSerialNumber">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>550</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>N Serial Number</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNardaBatteryVoltage">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>550</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>N Battery Volts</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNardaTemperature">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>610</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>N Temperature</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNardaThreeAxes">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>610</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>N 3 Axes</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNardaSetPowerOffTime">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>610</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>N Power Time</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNardaPowerOff">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>610</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>N Power Off</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnWGQueryField">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>670</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>WG Single M</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnWGQueryVersion">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>670</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>WG Version</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnWGQueryBatteryOK">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>670</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>WG Battery OK</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnWGQueryCmdError">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>670</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>WG Command Error</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnWGBeep">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>670</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>WG Beep</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnWGQueryFastMode">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>730</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>WG Fast Mode?</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnWGToggleFastMode">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>730</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>WG Tgle Fast Mode</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnWGToggleCalcAxis">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>730</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>WG Tgle C Axis</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnWGQueryCalcAxis">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>730</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>WG Calc Axis?</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCCQueryStatus">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>790</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CC Status</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCCSetReset">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>850</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CC Reset</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblLastReply">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>460</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Last Reply</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblLastReplyTxt">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>460</y>
+      <width>941</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCCSetDigitalOP">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>790</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CC Digi Set</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lneDataDecValue">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>540</y>
+      <width>141</width>
+      <height>71</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblHexData">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>620</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Dec Data to Tx</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCCSetAnIPOn">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>790</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CC An IP On</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCCSetAnIPOff">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>850</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CC An IP Off</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCCSetDAAnIP">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>790</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CC D/A An IP</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCCSetAnIPScanTime">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>850</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CC An IP Scn T</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCCSetAnOPSweepTime">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>790</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CC An OP Swp T</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCCSetBaudRate">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>850</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CC Baud Set</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCCSetAnOPOff">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>850</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CC An OP Off</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCCSetAnOPOn">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>790</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CC An OP On</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCCSetLoadOPSweep">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>850</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CC Load OP SWP</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1225</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

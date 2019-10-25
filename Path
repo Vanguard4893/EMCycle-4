@@ -1,0 +1,13 @@
+/opt/qtsdk/5.12.0/gcc_64/bin:
+/usr/bin:
+/usr/local/sbin:
+/usr/local/bin:
+/usr/sbin:
+/usr/bin:
+/sbin:/bin:
+/usr/games:
+/usr/local/games:
+/snap/bin
+
+
+/opt/qtsdk/5.12.0/gcc_64/bin:/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/x86_64-linux-gnu

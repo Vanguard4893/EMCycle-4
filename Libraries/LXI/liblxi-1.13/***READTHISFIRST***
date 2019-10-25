@@ -1,0 +1,28 @@
+You MUST make the LXI library yourself using the makefile...
+DO NOT attempt to used the installed libraries. They do NOT link.
+
+From:
+
+https://github.com/lxi-tools/liblxi
+
+4. Installation
+
+The latest release can be downloaded from https://lxi-tools.github.io
+4.1 Installation using source
+
+To compile and install successfully from source you need to install the following dependencies:
+
+    libtirpc
+    rpcgen
+    libxml2
+    avahi (optional)
+
+Install steps:
+
+    $ ./configure
+    $ make
+    $ make install
+
+Note: Please do no try to install from source if you are not familiar with using autotools.
+
+Note: If you are installing from git source remember to run the autogen.sh script to generate the configure script.

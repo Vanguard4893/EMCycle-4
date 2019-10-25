@@ -1,0 +1,53 @@
+.TH "lxi_connect" "3" "October 2017"
+
+.SH "NAME"
+lxi_connect \- connect to LXI device
+
+.SH "SYNOPSIS"
+.PP
+.B #include <lxi.h>
+
+.B int lxi_connect(char *address, int port, char *name, int timeout, lxi_protocol_t protocol);
+
+.SH "DESCRIPTION"
+.PP
+The
+.BR lxi_connect()
+function connects to a LXI device with
+.I name
+at IP address pointed to by
+.I address
+
+.PP
+If
+.I name
+is NULL then the default name "inst0" will be used.
+
+.PP
+.I protocol
+is either VXI11 or RAW.
+
+.PP
+If
+.I protocol
+is RAW then
+.I port
+will be used as destination port.
+
+.PP
+The
+.I timeout
+is in milliseconds.
+
+.SH "RETURN VALUE"
+
+Upon successful completion 
+.BR lxi_connect() 
+returns a new connection handle, or 
+.BR LXI_ERROR
+if an error occurred.
+
+.SH "SEE ALSO"
+.BR lxi_send (3),
+.BR lxi_receive (3),
+.BR lxi_disconnect (3),
