@@ -1,0 +1,7 @@
+23/06/2017 11:15:45	   170.000 MHz	 14.4 V/m	 -6.9 dBm	OK	IP0: 30819	(10.47 V/m)	Digital: 0XFF
+23/06/2017 11:15:50	   170.850 MHz	 16.0 V/m	 -5.9 dBm	OK	IP0: 31230	(11.15 V/m)	Digital: 0XFF
+23/06/2017 11:15:55	   171.704 MHz	 16.9 V/m	 -4.5 dBm	OK	IP0: 31624	(10.43 V/m)	Digital: 0XFF
+23/06/2017 11:16:00	   172.563 MHz	 17.5 V/m	 -3.6 dBm	OK	IP0: 31807	(10.51 V/m)	Digital: 0XFF
+23/06/2017 11:16:05	   173.426 MHz	 18.4 V/m	 -2.7 dBm	OK	IP0: 31984	(10.43 V/m)	Digital: 0XFF
+
+

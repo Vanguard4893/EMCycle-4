@@ -1,0 +1,7 @@
+Emcycle commands - Format Examples
+
+FREQ:CW 55.000 MHZ
+OUTP:STAT ON
+POW:AMPL -33 DBM
+AM:STAT OFF
+

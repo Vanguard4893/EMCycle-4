@@ -1,0 +1,9 @@
+13/07/2017 14:02:20	    80.000 MHz	  1.6 V/m	  1.0 dBm	OK	IP0: 228	(-24.47 V/m)	Digital: 0XFF
+13/07/2017 14:02:20	    80.400 MHz	  1.6 V/m	  1.0 dBm	FAIL (LIMIT)	IP0: 228	(-23.73 V/m)	Digital: 0XFF
+13/07/2017 14:02:25	    80.802 MHz	  1.6 V/m	  1.0 dBm	FAIL (LIMIT)	IP0: 212	(-23.07 V/m)	Digital: 0XFF
+13/07/2017 14:02:29	    81.206 MHz	  1.6 V/m	  1.0 dBm	FAIL (LIMIT)	IP0: 222	(-22.41 V/m)	Digital: 0XFF
+13/07/2017 14:02:33	    81.612 MHz	  1.6 V/m	  1.0 dBm	FAIL (LIMIT)	IP0: 226	(-21.78 V/m)	Digital: 0XFF
+13/07/2017 14:02:37	    82.020 MHz	  1.6 V/m	  1.0 dBm	FAIL (LIMIT)	IP0: 232	(-21.16 V/m)	Digital: 0XFF
+13/07/2017 14:02:41	    82.430 MHz	  1.6 V/m	  1.0 dBm	FAIL (LIMIT)	IP0: 229	(-20.58 V/m)	Digital: 0XFF
+
+

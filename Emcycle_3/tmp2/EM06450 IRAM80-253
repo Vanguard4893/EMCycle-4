@@ -1,0 +1,12 @@
+24/05/2016 13:24:13	     5.000 MHz	   11.77 V/m	 -1.6 dBm	OK	IP0: 29541	(10.41 V/m)	Digital: 0XFF
+24/05/2016 13:24:18	     5.025 MHz	   11.96 V/m	 -0.6 dBm	OK	IP0: 29881	(11.00 V/m)	Digital: 0XFF
+24/05/2016 13:24:23	     5.050 MHz	   11.99 V/m	  0.3 dBm	OK	IP0: 30136	(11.40 V/m)	Digital: 0XFF
+24/05/2016 13:24:28	     5.075 MHz	   12.07 V/m	  0.8 dBm	OK	IP0: 30292	(11.59 V/m)	Digital: 0XFF
+24/05/2016 13:24:28	     5.101 MHz	  1.0 dBm	FAIL (LIMIT)	IP0: 30292	(8.76 V/m)	Digital: 0XFF
+24/05/2016 13:24:38	     5.126 MHz	   12.41 V/m	  1.0 dBm	OK	IP0: 30374	(8.91 V/m)	Digital: 0XFF
+24/05/2016 13:24:38	     5.152 MHz	  1.0 dBm	FAIL (LIMIT)	IP0: 30374	(8.95 V/m)	Digital: 0XFF
+24/05/2016 13:24:43	     5.178 MHz	  1.0 dBm	FAIL (LIMIT)	IP0: 30420	(9.06 V/m)	Digital: 0XFF
+24/05/2016 13:24:48	     5.204 MHz	  1.0 dBm	FAIL (LIMIT)	IP0: 30435	(9.09 V/m)	Digital: 0XFF
+24/05/2016 13:24:53	     5.230 MHz	  1.0 dBm	FAIL (LIMIT)	IP0: 30464	(9.16 V/m)	Digital: 0XFF
+
+

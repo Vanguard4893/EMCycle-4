@@ -1,0 +1,6 @@
+29/04/2015 09:42:39	    30.000 MHz	 -1.0 V/m	 -2.6 dBm	OK	IP0: 26485	(6.68 V/m)	Digital: 0XFF
+29/04/2015 09:42:42	    30.150 MHz	 -1.0 V/m	 -2.4 dBm	OK	IP0: 26500	(6.73 V/m)	Digital: 0XFF
+29/04/2015 09:42:45	    30.301 MHz	 -1.0 V/m	 -2.0 dBm	OK	IP0: 26667	(6.89 V/m)	Digital: 0XFF
+29/04/2015 09:42:45	    30.452 MHz	 -1.0 V/m	 -2.0 dBm	FAIL (LIMIT)	IP0: 26667	(6.66 V/m)	Digital: 0XFF
+
+

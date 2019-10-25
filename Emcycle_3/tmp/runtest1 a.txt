@@ -1,0 +1,15 @@
+21/04/2010 09:53:32	     1.000 MHz	 V/m	-30.0 dBm	OK	IP0: 1300	Digital: 0X7F
+21/04/2010 09:53:44	     1.010 MHz	 V/m	-30.0 dBm	OK	IP0: 1292	Digital: 0X7F
+21/04/2010 09:53:56	     1.020 MHz	 V/m	-30.0 dBm	OK	IP0: 1299	Digital: 0X7F
+21/04/2010 09:54:08	     1.030 MHz	 V/m	-30.0 dBm	OK	IP0: 1297	Digital: 0X7F
+21/04/2010 09:54:20	     1.040 MHz	 V/m	-30.0 dBm	OK	IP0: 1296	Digital: 0X7F
+21/04/2010 09:54:32	     1.050 MHz	 V/m	-30.0 dBm	OK	IP0: 1292	Digital: 0X7F
+21/04/2010 09:54:44	     1.060 MHz	 V/m	-30.0 dBm	OK	IP0: 1296	Digital: 0X7F
+21/04/2010 09:54:56	     1.070 MHz	 V/m	-30.0 dBm	OK	IP0: 1296	Digital: 0X7F
+21/04/2010 09:55:08	     1.080 MHz	 V/m	-30.0 dBm	OK	IP0: 1296	Digital: 0X7F
+21/04/2010 09:55:20	     1.090 MHz	 V/m	-30.0 dBm	OK	IP0: 1293	Digital: 0X7F
+21/04/2010 09:55:32	     1.100 MHz	 V/m	-30.0 dBm	OK	IP0: 1295	Digital: 0X7F
+21/04/2010 09:55:44	     1.110 MHz	 V/m	-30.0 dBm	OK	IP0: 1296	Digital: 0X7F
+21/04/2010 09:55:56	     1.120 MHz	 V/m	-30.0 dBm	OK	IP0: 1300	Digital: 0X7F
+
+

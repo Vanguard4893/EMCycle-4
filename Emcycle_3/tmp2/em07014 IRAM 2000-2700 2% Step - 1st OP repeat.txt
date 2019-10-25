@@ -1,0 +1,6 @@
+28/04/2017 10:48:04	  2000.000 MHz	  7.4 V/m	-13.3 dBm	OK	IP0: 26029	(3.94 V/m)	Digital: 0XFF
+28/04/2017 10:48:10	  2040.000 MHz	  3.8 V/m	-12.3 dBm	OK	IP0: 26644	(4.80 V/m)	Digital: 0XFF
+28/04/2017 10:48:15	  2080.800 MHz	  3.8 V/m	-11.3 dBm	OK	IP0: 27472	(4.97 V/m)	Digital: 0XFF
+28/04/2017 10:48:20	  2122.416 MHz	  9.4 V/m	-11.3 dBm	OK	IP0: 27507	(4.65 V/m)	Digital: 0XFF
+
+

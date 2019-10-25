@@ -1,0 +1,10 @@
+14/11/2016 11:05:07	    80.000 MHz	  5.8 V/m	-21.5 dBm	OK	IP0: 25293	(3.93 V/m)	Digital: 0XFF
+14/11/2016 11:05:12	    81.600 MHz	  5.8 V/m	-20.5 dBm	OK	IP0: 25077	(4.32 V/m)	Digital: 0XFF
+14/11/2016 11:05:18	    83.232 MHz	  6.5 V/m	-19.5 dBm	OK	IP0: 25380	(4.93 V/m)	Digital: 0XFF
+14/11/2016 11:05:25	    84.897 MHz	  6.0 V/m	-21.6 dBm	OK	IP0: 24602	(5.05 V/m)	Digital: 0XFF
+14/11/2016 11:05:31	    86.595 MHz	  6.0 V/m	-22.0 dBm	OK	IP0: 24254	(4.98 V/m)	Digital: 0XFF
+14/11/2016 11:05:36	    88.326 MHz	  5.8 V/m	-21.0 dBm	OK	IP0: 23721	(3.93 V/m)	Digital: 0XFF
+14/11/2016 11:05:42	    90.093 MHz	  6.4 V/m	-20.0 dBm	OK	IP0: 23932	(4.83 V/m)	Digital: 0XFF
+14/11/2016 11:05:47	    91.895 MHz	  7.0 V/m	-22.1 dBm	OK	IP0: 23093	(5.08 V/m)	Digital: 0XFF
+
+
